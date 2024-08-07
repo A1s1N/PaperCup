@@ -1,6 +1,5 @@
 package org.service.models;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -8,9 +7,7 @@ import org.hibernate.annotations.UuidGenerator;
 
 import java.util.UUID;
 
-@Entity
-public class Product {
-
+public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -18,10 +15,9 @@ public class Product {
     private UUID uuid = UUID.randomUUID();
 
     private String name;
-
-    private Long detailId;
-
-    private double weight;
+    // пока все
+    // private String email;
+    // private String phone;
 
     public Long getId() {
         return id;
@@ -39,28 +35,8 @@ public class Product {
         this.name = name;
     }
 
-    public Long getDetailId() {
-        return detailId;
-    }
-
-    public void setDetailId(Long detailId) {
-        this.detailId = detailId;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
-    public Product() {}
-    public Product(String name,
-                   Long detailId,
-                   double weight) {
+    public Client() {}
+    public Client(String name) {
         this.name = name;
-        this.detailId = detailId;
-        this.weight = weight;
     }
 }
