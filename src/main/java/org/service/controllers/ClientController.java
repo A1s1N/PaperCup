@@ -28,4 +28,14 @@ public class ClientController {
         return "clients/clients";
     }
 
+    @GetMapping("/clients/add")
+    public String clientsAdd(Model model) {
+        Iterable<Client> clients = clientRepository.findAll();
+        if(StreamSupport.stream(clients.spliterator(), false).findAny().isEmpty())
+            model.addAttribute("message", "На данный момент клиенты отсутствуют");
+        else
+            model.addAttribute("clients", clients);
+        return "clients/clients-add";
+    }
+
 }
