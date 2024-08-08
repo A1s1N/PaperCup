@@ -14,7 +14,7 @@
     <h1>Список клиентов</h1>
     <h3 th:text="${message}"></h3>
     <div th:each="el : ${clients}" class="alert alert-info mt-5">
-        <h3 th:text="${el.getName()()}"/>
+        <h3 th:text="${el.getName()}"/>
         <a th:href="'/clients/' + ${el.getId()}" class="btn-btn-warning">Подробнее</a>
 
     </div>

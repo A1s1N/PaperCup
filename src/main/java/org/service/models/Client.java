@@ -12,6 +12,7 @@ import java.util.UUID;
 
 @Entity
 public class Client {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -20,8 +21,8 @@ public class Client {
 
     private String name;
 
-    private Date createdData;
-    private Date updatedData;
+    private String createdData;
+    private String updatedData;
 
     // пока все
     // private String email;
@@ -43,24 +44,24 @@ public class Client {
         this.name = name;
     }
 
-    public Date getCreatedData() {
+    public String getCreatedData() {
         return createdData;
     }
 
-    public void setCreatedData(Date createdData) {
+    public void setCreatedData(String createdData) {
         this.createdData = createdData;
     }
 
-    public Date getUpdateData() {
+    public String getUpdateData() {
         return updatedData;
     }
 
-    public void setUpdatedData(Date updatedData) {
+    public void setUpdatedData(String updatedData) {
         this.updatedData = updatedData;
     }
 
     public Client() {}
-    public Client(String name, Date createdData, Date updatedData) {
+    public Client(String name, String createdData, String updatedData) {
         this.name = name;
         this.createdData = createdData;
         this.updatedData = updatedData;
