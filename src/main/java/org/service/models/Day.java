@@ -1,17 +1,15 @@
 package org.service.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.hibernate.annotations.UuidGenerator;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.UUID;
-import javax.xml.crypto.Data;
+//import javax.xml.crypto.Data;
 
 
 @Entity
+@Table(name = "'DAY'")
 public class Day {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,11 +17,11 @@ public class Day {
     @UuidGenerator
     private UUID uuid = UUID.randomUUID();
 
-    private Date currentDate;
+    private Date curentDate;
 
-    private int requiredNumber;
+    private Long requiredNumber;
 
-    private int madeNumber;
+    private Long madeNumber;
 
     private Long orderId;
     //??
@@ -36,26 +34,26 @@ public class Day {
     }
 
     public Date getCurrentDate() {
-        return currentDate;
+        return curentDate;
     }
 
     public void setCurrentDate(Date currentDate) {
-        this.currentDate = currentDate;
+        this.curentDate = currentDate;
     }
 
-    public int getRequiredNumber() {
+    public Long getRequiredNumber() {
         return requiredNumber;
     }
 
-    public void setRequiredNumber(int requiredNumber) {
+    public void setRequiredNumber(Long requiredNumber) {
         this.requiredNumber = requiredNumber;
     }
 
-    public int getMadeNumber() {
+    public long getMadeNumber() {
         return madeNumber;
     }
 
-    public void setMadeNumber(int madeNumber) {
+    public void setMadeNumber(long madeNumber) {
         this.madeNumber = madeNumber;
     }
 
@@ -68,8 +66,8 @@ public class Day {
     }
 
     public Day() {}
-    public Day(Date currentDate, int requiredNumber, int madeNumber, Long orderId) {
-        this.currentDate = currentDate;
+    public Day(Date curentDate, Long requiredNumber, Long madeNumber, Long orderId) {
+        this.curentDate = curentDate;
         this.requiredNumber = requiredNumber;
         this.madeNumber = madeNumber;
         this.orderId = orderId;

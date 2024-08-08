@@ -1,15 +1,13 @@
 package org.service.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.util.Date;
 import java.util.UUID;
 
 @Entity
+@Table(name = "'ORDER'")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,17 +17,17 @@ public class Order {
 
     private String name;
 
-    private Date deadline;
+    private String deadline;
 
-    private Date createdDate; // может всем классам?
+    private String createdDate; // может всем классам?
 
-    private Date updatedDate;
+    private String updatedDate;
 
     private Long productId;
-// итоговое количество на какую-то дату (в календарь), который нужно сделать
+    // итоговое количество на какую-то дату (в календарь), который нужно сделать
     private Long clientId;
 
-    private Date totalDate; // +-
+    private String totalDate; // +-
 
     private Long countProducts;
 
@@ -53,27 +51,27 @@ public class Order {
         this.name = name;
     }
 
-    public Date getDeadline() {
+    public String getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(Date deadline) {
+    public void setDeadline(String deadline) {
         this.deadline = deadline;
     }
 
-    public Date getCreatedDate() {
+    public String getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(Date createdDate) {
+    public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
     }
 
-    public Date getUpdatedDate() {
+    public String getUpdatedDate() {
         return updatedDate;
     }
 
-    public void setUpdatedDate(Date updatedDate) {
+    public void setUpdatedDate(String updatedDate) {
         this.updatedDate = updatedDate;
     }
 
@@ -93,11 +91,11 @@ public class Order {
         this.clientId = clientId;
     }
 
-    public Date getTotalDate() {
+    public String getTotalDate() {
         return totalDate;
     }
 
-    public void setTotalDate(Date totalDate) {
+    public void setTotalDate(String totalDate) {
         this.totalDate = totalDate;
     }
 
@@ -127,12 +125,12 @@ public class Order {
 
     public Order() {}
     public Order(String name,
-                 Date deadline,
-                 Date createdDate,
-                 Date updatedDate,
+                 String deadline,
+                 String createdDate,
+                 String updatedDate,
                  Long productId,
                  Long clientId,
-                 Date totalDate,
+                 String totalDate,
                  Long countProducts,
                  double totalWeight) {
         this.name = name;
