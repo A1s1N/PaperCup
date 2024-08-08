@@ -6,7 +6,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import org.hibernate.annotations.UuidGenerator;
 
-import javax.xml.crypto.Data;
+//import javax.xml.crypto.Data;
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
@@ -19,8 +20,8 @@ public class Client {
 
     private String name;
 
-    private Data createdData;
-    private Data updatedData;
+    private Date createdData;
+    private Date updatedData;
 
     // пока все
     // private String email;
@@ -42,24 +43,24 @@ public class Client {
         this.name = name;
     }
 
-    public Data getCreatedData() {
+    public Date getCreatedData() {
         return createdData;
     }
 
-    public void setCreatedData(Data createdData) {
+    public void setCreatedData(Date createdData) {
         this.createdData = createdData;
     }
 
-    public Data getUpdateData() {
+    public Date getUpdateData() {
         return updatedData;
     }
 
-    public void setUpdatedData(Data updatedData) {
+    public void setUpdatedData(Date updatedData) {
         this.updatedData = updatedData;
     }
 
     public Client() {}
-    public Client(String name, Data createdData, Data updatedData) {
+    public Client(String name, Date createdData, Date updatedData) {
         this.name = name;
         this.createdData = createdData;
         this.updatedData = updatedData;
