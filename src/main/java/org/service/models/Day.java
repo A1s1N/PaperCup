@@ -1,11 +1,20 @@
 package org.service.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import org.hibernate.annotations.UuidGenerator;
 
+import java.sql.Date;
 import java.util.UUID;
-import java.util.Date;
+import javax.xml.crypto.Data;
 
+
+@Entity
 public class Day {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id; //подтягивать номер заказа из 1С
     @UuidGenerator
     private UUID uuid = UUID.randomUUID();

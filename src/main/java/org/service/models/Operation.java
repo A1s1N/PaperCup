@@ -1,5 +1,6 @@
 package org.service.models;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -7,6 +8,7 @@ import org.hibernate.annotations.UuidGenerator;
 
 import java.util.UUID;
 
+@Entity
 public class Operation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -1,5 +1,6 @@
 package org.service.models;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -8,6 +9,7 @@ import org.hibernate.annotations.UuidGenerator;
 import java.util.Date;
 import java.util.UUID;
 
+@Entity
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,9 +21,9 @@ public class Order {
 
     private Date deadline;
 
-    private Date created; // может всем классам?
+    private Date createdDate; // может всем классам?
 
-    private Date updated;
+    private Date updatedDate;
 
     private Long productId;
 // итоговое количество на какую-то дату (в календарь), который нужно сделать
@@ -59,20 +61,20 @@ public class Order {
         this.deadline = deadline;
     }
 
-    public Date getCreated() {
-        return created;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreated(Date created) {
-        this.created = created;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
-    public Date getUpdated() {
-        return updated;
+    public Date getUpdatedDate() {
+        return updatedDate;
     }
 
-    public void setUpdated(Date updated) {
-        this.updated = updated;
+    public void setUpdatedDate(Date updatedDate) {
+        this.updatedDate = updatedDate;
     }
 
     public Long getProductId() {
@@ -126,8 +128,8 @@ public class Order {
     public Order() {}
     public Order(String name,
                  Date deadline,
-                 Date created,
-                 Date updated,
+                 Date createdDate,
+                 Date updatedDate,
                  Long productId,
                  Long clientId,
                  Date totalDate,
@@ -135,8 +137,8 @@ public class Order {
                  double totalWeight) {
         this.name = name;
         this.deadline = deadline;
-        this.created = created;
-        this.updated = updated;
+        this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
         this.productId = productId;
         this.clientId = clientId;
         this.totalDate = totalDate;
