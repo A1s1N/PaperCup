@@ -11,9 +11,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Optional;
+//import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 import java.util.stream.StreamSupport;
 
 @Controller
@@ -44,8 +49,8 @@ public class OrderController {
     @PostMapping("/orders/add")
     public String ordersNewAdd(@RequestParam String name,
                                @RequestParam String deadline,
-                               @RequestParam String createdDate,
-                               @RequestParam String updatedDate,
+                               //@RequestParam String createdDate,
+                               //@RequestParam String updatedDate,
                                @RequestParam Long productId,
                                @RequestParam Long clientId,
                                @RequestParam String totalDate,
@@ -53,7 +58,13 @@ public class OrderController {
                                @RequestParam double totalWeight,
                                Model model) {
 
-        Order order = new Order(name, deadline, createdDate, updatedDate, productId, clientId, totalDate, countProducts, totalWeight);
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu-MM-dd 'в' HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+
+        String createdDate = now.format(dtf);
+        String updatedDate = createdDate;
+
+        Order order = new Order(name, deadline, createdDate, updatedDate, productId, clientId, totalDate , countProducts, totalWeight);
         orderRepository.save(order);
         return "redirect:/orders";
     }
@@ -86,18 +97,26 @@ public class OrderController {
     public String orderUpdate(@PathVariable(value = "id") long id,
                               @RequestParam String name,
                               @RequestParam String deadline,
-                              @RequestParam String createdDate,
-                              @RequestParam String updatedDate,
+                              //@RequestParam String createdDate,
+                              //@RequestParam String updatedDate,
                               @RequestParam Long productId,
                               @RequestParam Long clientId,
                               @RequestParam String totalDate,
                               @RequestParam Long countProducts,
                               @RequestParam double totalWeight,
                               Model model) {
+
+        Date today = new Date();
+        today.setHours(0);
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu-MM-dd 'в' HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        String updatedDate = now.format(dtf);
+
+
         Order order = orderRepository.findById(id).orElseThrow();
         order.setName(name);
         order.setDeadline(deadline);
-        order.setCreatedDate(createdDate);
         order.setUpdatedDate(updatedDate);
         order.setProductId(productId);
         order.setClientId(clientId);

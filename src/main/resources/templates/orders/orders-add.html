@@ -19,10 +19,10 @@
         <input type="text" name="productId" placeholder="Введите произодимый продукт" class="form-control"><br>
         <input type="text" name="clientId" placeholder="Введите заказчика" class="form-control"><br>
         <label>Введите  дату сдачи проекта<input type="date" name="totalDate" class="form-control"></label><br><br>
-        <input type="text" name="countProducts" placeholder="Введите количество производимой продукции для заказа" class="form-control"><br>
-        <input type="text" name="totalWeight" placeholder="Введите итоговый вес продукции" class="form-control"><br>
-        <input type="date" name="createdDate" class = "form-control">
-        <button type="submit" class="btn btn-success">Добавить врача в систему</button>
+
+        <input type="number" name="countProducts" placeholder="Введите количество производимой продукции для заказа" class="form-control" min="0"><br>
+        <input type="number" name="totalWeight" placeholder="Введите итоговый вес продукции (считаем?)" class="form-control" min="0"><br>
+        <button type="submit" class="btn btn-success">Добавить заказ</button>
     </form>
 </div>
 

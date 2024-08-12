@@ -14,8 +14,21 @@
 <div class="container mt-5">
     <h1>Список заказов</h1>
     <h3 th:text="${message}"></h3>
-    <div th:each="el : ${orders}" class="alert alert-info mt-5">
-        <h3 th:text="${el.getName()}"/>
+    <div th:each="el : ${orders}" class="alert alert-info mt-5" role="alert">
+        <h4 class="alert-heading" th:text="${el.getName()}"/>
+        <p>Планируемая сдача заказа: <b><span th:text="${el.getDeadline()}"></span></b></p>
+        <p>Производимый продукт: <b><span th:text="${el.getProductId()}"></span></b></p>
+        <p>Заказчик: <b><span th:text="${el.getClientId()}"></span></b></p>
+        <p>Дата сдачи заказа: <b><span th:text="${el.getTotalDate()}"></span></b></p>
+        <p>Количество требуемой продукции: <b><span th:text="${el.getCountProducts()}"></span></b> штук</p>
+        <p>Итоговый вес продукции: <b><span th:text="${el.getTotalWeight()}"></span></b> кг</p><br>
+        <p>Дата создания заказа: <b><span th:text="${el.getCreatedDate()}"></span></b></p>
+        <p>Дата последнего редактирования: <b><span th:text="${el.getUpdatedDate()}"></span></b></p>
+       <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div> -->
+
         <a th:href="'/orders/' + ${el.getId()}" class="btn-btn-warning">Подробнее</a>
 
     </div>

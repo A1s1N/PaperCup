@@ -12,11 +12,22 @@
 
 
 <div class="container mt-5 mb-5">
-    <h1>Редактирование врача</h1>
-    <div th:each="el : ${doctor}">
+    <h1>Редактирование заказа</h1>
+    <div th:each="el : ${order}">
         <form method="post">
-            <input type="text" th:value="${el.getFullName()}" name="fullName" placeholder="Введите полное имя врача" class="form-control"><br>
-            <button type="submit" class="btn btn-success">Обновить врача в системе</button>
+            <label>Введите название заказа:</label>
+            <input type="text" name="name" placeholder="Введите название заказа" class="form-control" th:value="${el.getName()}"><br>
+            <label>Введите планируемую сдачу заказа:<input type="date" name="deadline" th:value="${el.getDeadline()}" class="form-control"></label><br><br>
+            <label>Введите произодимый продукт</label>
+            <input type="text" name="productId" placeholder="Введите произодимый продукт" class="form-control" th:value="${el.getProductId()}"><br>
+            <label>Введите заказчика:</label>
+            <input type="text" name="clientId" placeholder="Введите заказчика" class="form-control" th:value="${el.getClientId()}"><br>
+            <label>Введите  дату сдачи проекта<input type="date" name="totalDate" class="form-control" th:value="${el.getTotalDate()}"></label><br><br>
+            <label>Введите количество производимой продукции для заказа</label>
+            <input type="number" name="countProducts" placeholder="Введите количество производимой продукции для заказа" class="form-control" th:value="${el.getCountProducts()}"><br>
+            <label>Введите итоговый вес продукции (считаем?)</label>
+            <input type="number" name="totalWeight" placeholder="Введите итоговый вес продукции (считаем?)" class="form-control" th:value="${el.getTotalWeight()}"><br>
+            <button type="submit" class="btn btn-success">Отредактировать заказ</button>
         </form>
     </div>
 </div>
