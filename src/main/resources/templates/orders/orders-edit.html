@@ -20,8 +20,14 @@
             <label>Введите планируемую сдачу заказа:<input type="date" name="deadline" th:value="${el.getDeadline()}" class="form-control"></label><br><br>
             <label>Введите произодимый продукт</label>
             <input type="text" name="productId" placeholder="Введите произодимый продукт" class="form-control" th:value="${el.getProductId()}"><br>
-            <label>Введите заказчика:</label>
-            <input type="text" name="clientId" placeholder="Введите заказчика" class="form-control" th:value="${el.getClientId()}"><br>
+            <label>Выберите клиента</label>
+            <select name="clientId" >
+                <option th:value="${el.getId()}"
+                        th:each="el : ${clients}"
+                        th:text="${el.getName()}"/>
+            </select>
+            <br><br>
+
             <label>Введите  дату сдачи проекта<input type="date" name="totalDate" class="form-control" th:value="${el.getTotalDate()}"></label><br><br>
             <label>Введите количество производимой продукции для заказа</label>
             <input type="number" name="countProducts" placeholder="Введите количество производимой продукции для заказа" class="form-control" th:value="${el.getCountProducts()}"><br>

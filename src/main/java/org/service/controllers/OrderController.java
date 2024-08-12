@@ -99,6 +99,8 @@ public class OrderController {
         ArrayList<Order> res = new ArrayList<>();
         order.ifPresent(res::add);
         model.addAttribute("order", res);
+        Iterable<Client> clients = clientRepository.findAll();
+        model.addAttribute("clients",clients);
         return "orders/orders-edit";
     }
 
