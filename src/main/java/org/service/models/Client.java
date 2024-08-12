@@ -7,7 +7,6 @@ import jakarta.persistence.Id;
 import org.hibernate.annotations.UuidGenerator;
 
 //import javax.xml.crypto.Data;
-import java.util.Date;
 import java.util.UUID;
 
 @Entity
@@ -61,7 +60,7 @@ public class Client {
     }
 
     public Client() {}
-    public Client(String name, String createdData, String updatedData) {
+    public Client(String name) {
         this.name = name;
         this.createdData = createdData;
         this.updatedData = updatedData;

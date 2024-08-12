@@ -1,9 +1,11 @@
 package org.service.controllers;
 
-import org.service.models.Doctor;
+import org.service.models.Client;
 import org.service.models.Order;
+import org.service.repo.ClientRepository;
 import org.service.repo.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.error.DefaultErrorAttributes;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,9 +28,14 @@ public class OrderController {
 
     private final OrderRepository orderRepository;
 
+    private final ClientRepository clientRepository;
+
+    Client defaultClient = new Client("Неизветсно");
+
     @Autowired
-    public OrderController(OrderRepository orderRepository) {
+    public OrderController(OrderRepository orderRepository, ClientRepository clientRepository, DefaultErrorAttributes errorAttributes) {
         this.orderRepository = orderRepository;
+        this.clientRepository = clientRepository;
     }
 
     @GetMapping("/orders")
@@ -38,11 +45,14 @@ public class OrderController {
             model.addAttribute("message", "На данный момент заказы отсутствуют");
         else
             model.addAttribute("orders", orders);
+            model.addAttribute("defaultClint", clientRepository);
         return "orders/orders";
     }
 
     @GetMapping("/orders/add")
     public String orderAdd(Model model) {
+        Iterable<Client> clients = clientRepository.findAll();
+        model.addAttribute("clients",clients);
         return "orders/orders-add";
     }
 
@@ -63,7 +73,6 @@ public class OrderController {
 
         String createdDate = now.format(dtf);
         String updatedDate = createdDate;
-
         Order order = new Order(name, deadline, createdDate, updatedDate, productId, clientId, totalDate , countProducts, totalWeight);
         orderRepository.save(order);
         return "redirect:/orders";

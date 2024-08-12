@@ -1,6 +1,5 @@
 package org.service.controllers;
 
-import org.service.models.Doctor;
 import org.springframework.ui.Model;
 import org.service.models.Client;
 import org.service.repo.ClientRepository;
@@ -11,9 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Optional;
 import java.util.stream.StreamSupport;
 
@@ -50,7 +47,7 @@ public class ClientController {
                                Model model) {
         System.out.println(createdData);
         System.out.println(updatedData.getClass().getName());
-        Client client = new Client(name,createdData, updatedData);
+        Client client = new Client(name);
 
         clientRepository.save(client);
         return "redirect:/clients";
