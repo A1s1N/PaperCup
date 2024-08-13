@@ -17,7 +17,28 @@
         <input type="text" name="name" placeholder="Введите название заказа" class="form-control"><br>
         <label>Введите планируемую сдачу заказа:<input type="date" name="deadline" class="form-control"></label><br><br>
         <input type="text" name="productId" placeholder="Введите произодимый продукт" class="form-control"><br>
+
+        <select name="productId" >
+            <option th:value="${products.iterator()}"
+                    th:each="el : ${products}"
+                    th:text="${el.getName()}"/>
+        </select>
+        <iframe
+                id="inlineFrameExample"
+                title="Inline Frame Example"
+                width="300"
+                height="200"
+                src="clients/add">
+        </iframe>
+
+
+
         <input type="text" name="clientId" placeholder="Введите заказчика" class="form-control"><br>
+        <select name="clientId" >
+            <option th:value="${clients.iterator()}"
+                    th:each="el : ${clients}"
+                    th:text="${el.getName()}"/>
+        </select>
         <label>Введите  дату сдачи проекта<input type="date" name="totalDate" class="form-control"></label><br><br>
 
         <input type="number" name="countProducts" placeholder="Введите количество производимой продукции для заказа" class="form-control" min="0"><br>

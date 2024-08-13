@@ -1,8 +1,12 @@
 package org.service.controllers;
 
+import org.service.models.Client;
 import org.service.models.Doctor;
 import org.service.models.Order;
+import org.service.models.Product;
+import org.service.repo.ClientRepository;
 import org.service.repo.OrderRepository;
+import org.service.repo.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,10 +29,14 @@ import java.util.stream.StreamSupport;
 public class OrderController {
 
     private final OrderRepository orderRepository;
+    private final ClientRepository clientRepository;
+    private final ProductRepository productRepository;
 
     @Autowired
-    public OrderController(OrderRepository orderRepository) {
+    public OrderController(OrderRepository orderRepository, ClientRepository clientRepository, ProductRepository productRepository) {
         this.orderRepository = orderRepository;
+        this.clientRepository = clientRepository;
+        this.productRepository = productRepository;
     }
 
     @GetMapping("/orders")
@@ -43,6 +51,10 @@ public class OrderController {
 
     @GetMapping("/orders/add")
     public String orderAdd(Model model) {
+        Iterable<Product> products = productRepository.findAll();
+        Iterable<Client> clients = clientRepository.findAll();
+        model.addAttribute("products", products);
+        model.addAttribute("clients", clients);
         return "orders/orders-add";
     }
 
