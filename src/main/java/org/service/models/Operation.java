@@ -16,9 +16,13 @@ public class Operation {
     @UuidGenerator
     private UUID uuid = UUID.randomUUID();
 
+    private Long productId;
+
     private String name;
 
-    private double operationTime;
+    private String operationTime;
+
+    private String orderliness;
 
     public Long getId() {
         return id;
@@ -28,18 +32,44 @@ public class Operation {
         this.id = id;
     }
 
-    public double getOperationTime() {
+    public String getOperationTime() {
         return operationTime;
     }
 
-    public void setOperationTime(double operationTime) {
+    public void setOperationTime(String operationTime) {
         this.operationTime = operationTime;
+    }
+
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long productId) {
+        this.productId = productId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getOrderliness() {
+        return orderliness;
+    }
+
+    public void setOrderliness(String orderliness) {
+        this.orderliness = orderliness;
     }
 
     public Operation() {}
 
-    public Operation(String name, double operationTime) {
+    public Operation(String name, String operationTime, Long productId, String orderliness) {
         this.name = name;
         this.operationTime = operationTime;
+        this.productId = productId;
+        this.orderliness = orderliness;
     }
 }

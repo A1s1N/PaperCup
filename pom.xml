@@ -19,6 +19,9 @@
     <maven.compiler.source>20</maven.compiler.source>
     <maven.compiler.target>20</maven.compiler.target>
     <java.version>20</java.version>
+    <frontend-maven-plugin.version>1.15.0</frontend-maven-plugin.version>
+    <nodeVersion>v22.7.0</nodeVersion>
+    <npmVersion>10.8.2</npmVersion>
   </properties>
 
   <dependencies>
@@ -79,6 +82,14 @@
           <imageName>service/spring-boot-docker:spring-plugin</imageName>
         </configuration>
       </plugin>
+
+
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+
+
     </plugins>
   </build>
   <repositories>

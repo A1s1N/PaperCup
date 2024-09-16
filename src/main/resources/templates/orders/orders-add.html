@@ -23,22 +23,17 @@
                     th:each="el : ${products}"
                     th:text="${el.getName()}"/>
         </select>
-        <iframe
-                id="inlineFrameExample"
-                title="Inline Frame Example"
-                width="300"
-                height="200"
-                src="clients/add">
-        </iframe>
-
-
+        <br>
 
         <input type="text" name="clientId" placeholder="Введите заказчика" class="form-control"><br>
+
         <select name="clientId" >
             <option th:value="${clients.iterator()}"
                     th:each="el : ${clients}"
                     th:text="${el.getName()}"/>
         </select>
+        <br>
+
         <label>Введите  дату сдачи проекта<input type="date" name="totalDate" class="form-control"></label><br><br>
 
         <input type="number" name="countProducts" placeholder="Введите количество производимой продукции для заказа" class="form-control" min="0"><br>

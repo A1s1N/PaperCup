@@ -17,13 +17,10 @@ public class Day {
     @UuidGenerator
     private UUID uuid = UUID.randomUUID();
 
-    private Date curentDate;
+    //private Date curentDate;
+    private String month;
 
-    private Long requiredNumber;
-
-    private Long madeNumber;
-
-    private Long orderId;
+    private String day;
     //??
     public Long getId() {
         return id;
@@ -33,43 +30,71 @@ public class Day {
         this.id = id;
     }
 
-    public Date getCurrentDate() {
-        return curentDate;
+    public String getMonth() {
+        return month;
     }
 
-    public void setCurrentDate(Date currentDate) {
-        this.curentDate = currentDate;
+    public void setMonth(String month) {
+        this.month = month;
     }
 
-    public Long getRequiredNumber() {
-        return requiredNumber;
+    public String getDay() {
+        return day;
     }
 
-    public void setRequiredNumber(Long requiredNumber) {
-        this.requiredNumber = requiredNumber;
+    public void setDay(String day) {
+        this.day = day;
     }
 
-    public long getMadeNumber() {
-        return madeNumber;
-    }
+//    public Date getCurrentDate() {
+//        return curentDate;
+//    }
+//
+//    public void setCurrentDate(Date currentDate) {
+//        this.curentDate = currentDate;
+//    }
 
-    public void setMadeNumber(long madeNumber) {
-        this.madeNumber = madeNumber;
-    }
-
-    public Long getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
-    }
+//    public Long getRequiredNumberOfBlanks() {
+//        return requiredNumberOfBlanks;
+//    }
+//
+//    public void setRequiredNumberOfBlanks(Long requiredNumberOfBlanks) {
+//        this.requiredNumberOfBlanks = requiredNumberOfBlanks;
+//    }
+//
+//    public long getMadeNumberOfBlanks() {
+//        return madeNumberOfBlanks;
+//    }
+//
+//    public void setMadeNumberOfBlanks(long madeNumberOfBlanks) {
+//        this.madeNumberOfBlanks = madeNumberOfBlanks;
+//    }
+//
+//    public Long getOperationId() {
+//        return operationId;
+//    }
+//
+//    public void setOperationId(Long operationId) {
+//        this.operationId = operationId;
+//    }
+//
+//    public Long getTotalNumberOfBlanks() {
+//        return totalNumberOfBlanks;
+//    }
+//
+//    public void setTotalNumberOfBlanks(Long totalNumberOfBlanks) {
+//        this.totalNumberOfBlanks = totalNumberOfBlanks;
+//    }
 
     public Day() {}
-    public Day(Date curentDate, Long requiredNumber, Long madeNumber, Long orderId) {
-        this.curentDate = curentDate;
-        this.requiredNumber = requiredNumber;
-        this.madeNumber = madeNumber;
-        this.orderId = orderId;
+//    public Day(Date curentDate, Long requiredNumberOfBlanks, Long madeNumberOfBlanks, Long operationId) {
+//        this.operationId = operationId;
+//        this.requiredNumberOfBlanks = requiredNumberOfBlanks;
+//        this.madeNumberOfBlanks = madeNumberOfBlanks;
+//        this.operationId = operationId;
+//    }
+    public Day(String month, String day) {
+        this.month = month;
+        this.day = day;
     }
 }

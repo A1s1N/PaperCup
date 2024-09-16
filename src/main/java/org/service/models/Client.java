@@ -7,7 +7,6 @@ import jakarta.persistence.Id;
 import org.hibernate.annotations.UuidGenerator;
 
 //import javax.xml.crypto.Data;
-import java.util.Date;
 import java.util.UUID;
 
 @Entity
@@ -21,12 +20,7 @@ public class Client {
 
     private String name;
 
-    private String createdData;
-    private String updatedData;
-
-    // пока все
-    // private String email;
-    // private String phone;
+    private Long productId;
 
     public Long getId() {
         return id;
@@ -44,26 +38,17 @@ public class Client {
         this.name = name;
     }
 
-    public String getCreatedData() {
-        return createdData;
+    public Long getProductId() {
+        return productId;
     }
 
-    public void setCreatedData(String createdData) {
-        this.createdData = createdData;
-    }
-
-    public String getUpdateData() {
-        return updatedData;
-    }
-
-    public void setUpdatedData(String updatedData) {
-        this.updatedData = updatedData;
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 
     public Client() {}
-    public Client(String name, String createdData, String updatedData) {
+    public Client(String name, Long productId) {
         this.name = name;
-        this.createdData = createdData;
-        this.updatedData = updatedData;
+        this.productId = productId;
     }
 }
