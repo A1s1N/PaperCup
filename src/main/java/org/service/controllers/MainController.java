@@ -9,7 +9,7 @@ public class MainController {
 
     @GetMapping("/")
     public String home(Model model) {
-        return "home";
+        return "timetables/timetables";
     }
 
 }
