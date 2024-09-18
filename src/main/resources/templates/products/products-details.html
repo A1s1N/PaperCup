@@ -16,14 +16,18 @@
         <p>Название изделия: <b><span th:text="${el.getName()}"/></b></p>
 
         <div th:each="operation : ${operations}">
-            <p><b><span th:text="${operation.getOrderliness()} + ')' + ' '"/><span th:text="${operation.getName()}"/></b></p>
-            <a th:href="'/products/' + ${operation.getProductId()} + '/operations/' + ${operation.getId()} + '/edit'" class="btn-btn-warning">Подробнее</a>
+            <span>
+                <p><b><span th:text="${operation.getOrderliness()} + ')' + ' '"/><span th:text="${operation.getName()}"/></b>                <a th:href="'/products/' + ${operation.getProductId()} + '/operations/' + ${operation.getId()} + '/edit'" class="btn btn-warning">Подробнее</a>
+</p>
+            </span>
+        </div>
+        <div class="btn-group">
+            <span><a th:href="'/products/' + ${el.getId()} + '/operations/add'" class="btn btn-warning">Добавить новый процесс</a><br><br>
+                <a th:href="'/products/' + ${el.getId()} + '/edit'" class="btn btn-warning">Редактировать изделие</a><br><br></span>
         </div>
 
-
-        <a th:href="'/products/' + ${el.getId()} + '/edit'" class="btn btn-warning">Редактировать изделие</a><br><br>
         <form th:action="'/products/' + ${el.id} + '/remove'" method="post">
-            <button class="btn btn-warning" type="submit">Удалить</button>
+            <button class="btn btn-danger" type="submit">Удалить</button>
         </form>
     </div>
 </div>

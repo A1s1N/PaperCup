@@ -30,6 +30,24 @@ public class OperationController {
         this.operationRepository = operationRepository;
     }
 
+    @GetMapping("/products/{id_product}/operations/add")
+    public String operationAdd(@PathVariable(value = "id_product") long id_product,
+                                Model model) {
+        return "products/operations/operations-add";
+    }
+
+    @PostMapping("/products/{id_product}/operations/add")
+    public String operationNewAdd(@PathVariable(value = "id_product") long id_product,
+                                   @RequestParam String name,
+                                   @RequestParam String operationTime,
+                                   @RequestParam String orderliness,
+                               Model model) {
+
+        Operation operation = new Operation(name, operationTime, id_product, orderliness);
+        operationRepository.save(operation);
+        return "redirect:/products/{id_product}";
+    }
+
     @GetMapping("/products/{id_product}/operations/{id_operation}/edit")
     public String operationEdit(@PathVariable(value = "id_product") long id_product,
                                  @PathVariable(value = "id_operation") long id_operation,

@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.StreamSupport;
 
 @Controller
@@ -57,21 +55,22 @@ public class ProductController {
     @GetMapping("/products/{id}")
     public String productDetails(@PathVariable(value = "id") Long id, Model model) {
         if(!productRepository.existsById(id))
-            return "redirect:/product";
+            return "redirect:/products";
 
         Optional<Product> product = productRepository.findById(id);
-        Iterable <Operation> operation = operationRepository.findAll();
+        Iterable <Operation> operations = operationRepository.findByProductId(id);
 
         ArrayList<Product> productList = new ArrayList<>();
-        ArrayList<Operation> operationList = new ArrayList<>();
-        for (Operation op : operation) {
-            if (Objects.equals(op.getProductId(), id))
-                operationList.add(op);
-        }
+        //ArrayList<Operation> operationList = new ArrayList<>();
+//        for (Operation op : operation) {
+//            if (Objects.equals(op.getProductId(), id))
+//                operationList.add(op);
+//        }
+
         product.ifPresent(productList::add);
         //operation.ifPresent(operationList::add);
         model.addAttribute("product", productList);
-        model.addAttribute("operations", operationList);
+        model.addAttribute("operations", operations);
         return "products/products-details";
     }
 

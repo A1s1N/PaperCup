@@ -14,9 +14,12 @@
     <h1>Редактирование операции</h1>
     <div th:each="el : ${operations}">
         <form method="post">
+            <label>Введите название операции</label>
             <input type="text" th:value="${el.getName()}" name="name" placeholder="Введите название операции" class="form-control"><br>
-            <input type="text" th:value="${el.getOrderliness()}" name="orderliness" placeholder="Укажите порядковый номер выполения операции" class="form-control"><br>
-            <input type="text" th:value="${el.getOperationTime()}" name="operationTime" placeholder="Введите требуемый вес изделия" class="form-control"><br>
+            <label>Укажите порядковый номер выполения операции</label>
+            <input type="number" th:value="${el.getOrderliness()}" name="orderliness" placeholder="Укажите порядковый номер выполения операции" class="form-control"><br>
+            <label>Введите необходимое время</label>
+            <input type="number" th:value="${el.getOperationTime()}" name="operationTime" placeholder="Введите необходимое время" class="form-control"><br>
             <button type="submit" class="btn btn-success">Обновить изделие в системе</button>
         </form>
     </div>

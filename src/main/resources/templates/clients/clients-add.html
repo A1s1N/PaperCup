@@ -15,11 +15,10 @@
     <h1>Добавление клиента</h1>
     <form action="/clients/add" method="post">
         <input type="text" name="name" placeholder="Введите полное имя клиента" class="form-control"><br>
-        <select class="form-control" name="productId">
-            <option value = ""></option>
-            <option th:each="product : ${products}"
-                    th:value="${product.getId()}" name="productId"
-                    th:text="${product.getName()}"></option>
+        <select name="productId">
+            <option th:value="${el.getId()}"
+                    th:each="el : ${products}"
+                    th:text="${el.getName()}"/>
         </select><br>
         <button type="submit" class="btn btn-success">Добавить клиента в систему</button>
     </form>
