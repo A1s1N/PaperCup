@@ -54,7 +54,7 @@ public class TimetableController {
 
         YearMonth leapYearMonth = YearMonth.of(2024, Month.of(month + 1));
         int daysInLeapFeb = leapYearMonth.lengthOfMonth();
-        System.out.println(daysInLeapFeb);
+        //System.out.println(daysInLeapFeb);
 
         Iterable<Day> days = dayRepository.findAll();
         Iterable<DayOperation> dayOperation = dayOperationRepository.findAll();
