@@ -78,18 +78,22 @@ public class ClientController {
             return "redirect:/clients";
 
         Optional<Client> client = clientRepository.findById(id);
+        Iterable<Product> products = productRepository.findAll();
         ArrayList<Client> res = new ArrayList<>();
         client.ifPresent(res::add);
         model.addAttribute("client", res);
+        model.addAttribute("products", products);
         return "clients/clients-edit";
     }
 
     @PostMapping("/clients/{id}/edit")
     public String clientUpdate(@PathVariable(value = "id") long id,
                                @RequestParam String name,
+                               @RequestParam long productId,
                                Model model) {
         Client client = clientRepository.findById(id).orElseThrow();
         client.setName(name);
+        client.setProductId(productId);
         clientRepository.save(client);
         return "redirect:/clients";
     }

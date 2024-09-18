@@ -22,6 +22,8 @@ public class DayOperation {
 
     private Long operationId;
 
+    private Long countPeople;
+
     public Long getId() {
         return id;
     }
@@ -54,11 +56,20 @@ public class DayOperation {
         this.operationId = operationId;
     }
 
+    public Long getCountPeople() {
+        return countPeople;
+    }
+
+    public void setCountPeople(Long countPeople) {
+        this.countPeople = countPeople;
+    }
+
     public DayOperation() {}
 
-    public DayOperation(Long requiredNumberOfBlanks, Long madeNumberOfBlanks, Long operationId) {
+    public DayOperation(Long requiredNumberOfBlanks, Long madeNumberOfBlanks, Long operationId, Long countPeople) {
         this.requiredNumberOfBlanks = requiredNumberOfBlanks;
         this.madeNumberOfBlanks = madeNumberOfBlanks;
         this.operationId = operationId;
+        this.countPeople = countPeople;
     }
 }

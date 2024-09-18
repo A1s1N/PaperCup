@@ -16,6 +16,13 @@
     <div th:each="el : ${client}">
         <form method="post">
             <input type="text" th:value="${el.getName()}" name="name" placeholder="Введите полное имя клиента" class="form-control"><br>
+            <select name="productId">
+                <option th:value="${el.getProductId()}"></option>
+                        <option th:each="product : ${products}"
+                        th:text="${product.getName()}"
+                        th:selected="${product.getId()==el.getProductId()}"
+                        th:value="${product.getId()}">
+            </select><br><br>
             <button type="submit" class="btn btn-success">Обновить клиента в системе</button>
         </form>
     </div>

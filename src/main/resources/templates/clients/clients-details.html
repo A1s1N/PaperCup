@@ -14,6 +14,7 @@
     <h1>Подробнее о <span th:text="${client[0].getName()}"/></h1>
     <div th:each="el : ${client}" class="alert alert-info mt-5">
         <p>ФИО: <b><span th:text="${el.getName()}"/></b></p>
+        <br>
 
         <a th:href="'/clients/' + ${el.getId()} + '/edit'" class="btn btn-warning">Редактировать</a><br><br>
         <form th:action="'/clients/' + ${el.id} + '/remove'" method="post">

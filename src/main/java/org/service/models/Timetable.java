@@ -20,9 +20,7 @@ public class Timetable {
 
     private Long clientId;
 
-    private Long orderId;
-
-    private String month;
+    //private String month;
 
     public Long getId() {
         return id;
@@ -48,27 +46,20 @@ public class Timetable {
         this.clientId = clientId;
     }
 
-    public Long getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
-    }
-
-    public String getMonth() {
-        return month;
-    }
-
-    public void setMonth(String month) {
-        this.month = month;
-    }
+//    public String getMonth() {
+//        return month;
+//    }
+//
+//    public void setMonth(String month) {
+//        this.month = month;
+//    }
 
     public Timetable() {}
-    public Timetable(Long dayId, Long clientId, Long orderId, String month) {
+    public Timetable(Long dayId, Long clientId
+                     //String month
+    ) {
         this.dayId = dayId;
         this.clientId = clientId;
-        this.orderId = orderId;
-        this.month = month;
+        //this.month = month;
     }
 }

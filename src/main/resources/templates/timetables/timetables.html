@@ -13,7 +13,7 @@
 <div class="container mt-5">
     <h1>Список изделий</h1>
 
-<!--    <table class="table">-->
+    <table class="table">
 <!--        <thead th:each="day : ${days}">-->
 <!--        <tr th:text="${day.getMonth()}">-->
 
@@ -23,27 +23,16 @@
 <!--        <tbody>-->
 <!--        </tbody>-->
 <!--    </table>-->
-    <table class="table">
-<!--        <tr>-->
-<!--            <td colspan="2" th:each="day : ${days}" th:text="${day.getDay()}">...</td>-->
+<!--    <table class="table" th:each="day : ${days}" >-->
+<!--        <tr th:text="${day.getDay()}">-->
+<!--            <th ></th>-->
 <!--        </tr>-->
-<!--        <tr>-->
-<!--            <td colspan="2" th:each="day : ${days}" th:if="${day.getDay()} == '0'" th:text="aaa">...</td>-->
-<!--        </tr>-->
+
         <tr>
-            <td colspan="2">1.09</td>
-            <td colspan="2">2.09</td>
-            <td colspan="2">3.09</td>
-            <td colspan="2">4.09</td>
-            <td colspan="2">5.09</td>
-            <td colspan="2">6.09</td>
-            <td colspan="2">7.09</td>
-            <td colspan="2">8.09</td>
-            <td colspan="2">9.09</td>
-            <td colspan="2">10.09</td>
+            <td colspan="2" th:each="day : ${days}" th:text="${day.getDay()}"></td>
         </tr>
         <tr>
-            <td colspan="2">Клиент 1</td>
+            <td colspan="2" th:text="${clients[0].getName()}"></td>
             <td colspan="2"></td>
             <td colspan="2"></td>
             <td colspan="2"></td>
@@ -55,7 +44,7 @@
             <td colspan="2"></td>
         </tr>
         <tr>
-            <td colspan="2">1. Навивка трубы крышки</td>
+            <td colspan="2" th:text="'1. ' + ${operations[4].getName()}"></td>
             <td colspan="2">2 человека / 200 штук</td>
             <td colspan="2">1 человек / 100 штук</td>
             <td colspan="2"></td>

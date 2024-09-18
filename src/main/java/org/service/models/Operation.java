@@ -6,10 +6,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import org.hibernate.annotations.UuidGenerator;
 
+import java.util.Comparator;
 import java.util.UUID;
 
 @Entity
-public class Operation {
+public class Operation  {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -72,4 +73,15 @@ public class Operation {
         this.productId = productId;
         this.orderliness = orderliness;
     }
+
+
 }
+
+
+//    public int compare(Operation o1, Operation o2) {
+//        return o1.getOrderliness().compareTo(o2.getOrderliness());
+//    }
+
+
+
+
